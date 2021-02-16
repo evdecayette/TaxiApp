@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "627470424754",
+    "firebase_url": "https://taxiapp-1b45d-default-rtdb.firebaseio.com",
     "project_id": "taxiapp-1b45d",
     "storage_bucket": "taxiapp-1b45d.appspot.com"
   },
@@ -12,25 +13,15 @@
           "package_name": "com.example.taxiapp"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "627470424754-is1cc1jtuuh3f8n586dgoi5tgpj9hgog.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDuQ1QOEqllTYotpljZWLp5wsxRdfOhaiA"
+          "current_key": "AIzaSyCzYRuE2CWdC3UZeveJkfarMBR3SrI8S7I"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "627470424754-is1cc1jtuuh3f8n586dgoi5tgpj9hgog.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

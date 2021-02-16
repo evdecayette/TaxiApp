@@ -41,7 +41,7 @@ public class DriverMapActivity extends FragmentActivity implements OnMapReadyCal
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in S ydney"));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in S  ydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
