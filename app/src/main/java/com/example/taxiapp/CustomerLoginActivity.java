@@ -15,20 +15,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class DriverLoginActivity extends AppCompatActivity {
-EditText mEmail,mPassword;
-Button mLogin, mRegistration;
+public class CustomerLoginActivity extends AppCompatActivity {
 
-private FirebaseAuth mAuth;
-private FirebaseAuth.AuthStateListener firebaseAuthListener;
+    EditText mEmail,mPassword;
+    Button mLogin, mRegistration;
+
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener firebaseAuthListener;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_login);
+        setContentView(R.layout.activity_customer_login);
         mEmail = findViewById(R.id.email);
         mPassword = findViewById(R.id.password);
         mLogin = findViewById(R.id.login);
@@ -61,11 +61,11 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
                 final String email = mEmail.getText().toString();
                 final String password = mPassword.getText().toString();
                 // Start
-                 if(TextUtils.isEmpty(email))
-                 {
-                     mEmail.setError("Email is Required");
-                     return;
-                 }
+                if(TextUtils.isEmpty(email))
+                {
+                    mEmail.setError("Email is Required");
+                    return;
+                }
 
                 if(TextUtils.isEmpty(password))
                 {
@@ -79,15 +79,17 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
                     return;
                 }
                 //End
-                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(DriverLoginActivity.this, new OnCompleteListener<AuthResult>() {
+                mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(CustomerLoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful())
-                         {
-                            Toast.makeText(DriverLoginActivity.this, "User Created",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MapActivity .class));
+                        {
+                            Toast.makeText(CustomerLoginActivity.this, "User Created",Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            mEmail.setText("");
+                            mPassword.setText("");
                         }else{
-                            Toast.makeText(DriverLoginActivity.this, "Error !" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerLoginActivity.this, "Error !" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -121,17 +123,17 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(DriverLoginActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerLoginActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MapActivity.class));
+                            mEmail.setText("");
+                            mPassword.setText("");
                         }else {
-                            Toast.makeText(DriverLoginActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(CustomerLoginActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
                 });
             }
         });
-
-
     }
 }
