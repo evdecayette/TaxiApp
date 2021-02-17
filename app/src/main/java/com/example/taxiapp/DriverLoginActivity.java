@@ -50,7 +50,7 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
 //        };
         if(mAuth.getCurrentUser() != null)
         {
-            startActivity(new Intent(getApplicationContext(),MapActivity.class));
+            startActivity(new Intent(getApplicationContext(),DriverMapActivity.class));
             finish();
         }
 
@@ -85,7 +85,7 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
                         if(task.isSuccessful())
                          {
                             Toast.makeText(DriverLoginActivity.this, "User Created",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MapActivity .class));
+                            startActivity(new Intent(getApplicationContext(),DriverMapActivity .class));
                         }else{
                             Toast.makeText(DriverLoginActivity.this, "Error !" + task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
@@ -122,7 +122,7 @@ private FirebaseAuth.AuthStateListener firebaseAuthListener;
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(DriverLoginActivity.this,"Logged in Successfully",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MapActivity.class));
+                            startActivity(new Intent(getApplicationContext(),DriverMapActivity.class));
                         }else {
                             Toast.makeText(DriverLoginActivity.this, "Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
